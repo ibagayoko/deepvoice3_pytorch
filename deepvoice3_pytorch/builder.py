@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 
-from deepvoice3_pytorch import MultiSpeakerTTSModel, AttentionSeq2Seq
+from dv3.deepvoice3_pytorch import MultiSpeakerTTSModel, AttentionSeq2Seq
 
 
 def deepvoice3(n_vocab, embed_dim=256, mel_dim=80, linear_dim=513, r=4,
@@ -28,7 +28,7 @@ def deepvoice3(n_vocab, embed_dim=256, mel_dim=80, linear_dim=513, r=4,
                ):
     """Build deepvoice3
     """
-    from deepvoice3_pytorch.deepvoice3 import Encoder, Decoder, Converter
+    from dv3.deepvoice3_pytorch.deepvoice3 import Encoder, Decoder, Converter
 
     time_upsampling = max(downsample_step // r, 1)
 
@@ -114,7 +114,7 @@ def nyanko(n_vocab, embed_dim=128, mel_dim=80, linear_dim=513, r=1,
            key_projection=False,
            value_projection=False,
            ):
-    from deepvoice3_pytorch.nyanko import Encoder, Decoder, Converter
+    from dv3.deepvoice3_pytorch.nyanko import Encoder, Decoder, Converter
     assert encoder_channels == decoder_channels
 
     if n_speakers != 1:
@@ -193,7 +193,7 @@ def deepvoice3_multispeaker(n_vocab, embed_dim=256, mel_dim=80, linear_dim=513, 
                             ):
     """Build multi-speaker deepvoice3
     """
-    from deepvoice3_pytorch.deepvoice3 import Encoder, Decoder, Converter
+    from dv3.deepvoice3_pytorch.deepvoice3 import Encoder, Decoder, Converter
 
     time_upsampling = max(downsample_step // r, 1)
 

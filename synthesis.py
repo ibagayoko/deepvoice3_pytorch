@@ -22,15 +22,15 @@ import sys
 import os
 from os.path import dirname, join, basename, splitext
 
-import audio
+from dv3 import audio
 
 import torch
 import numpy as np
 import nltk
 
 # The deepvoice3 model
-from deepvoice3_pytorch import frontend
-from hparams import hparams, hparams_debug_string
+from dv3.deepvoice3_pytorch import frontend
+from dv3.hparams import hparams, hparams_debug_string
 
 from tqdm import tqdm
 

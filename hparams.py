@@ -1,9 +1,9 @@
-import hparam_tf.hparam
+from dv3.hparam_tf import hparam
 # NOTE: If you want full control for model architecture. please take a look
 # at the code and change whatever you want. Some hyper parameters are hardcoded.
 
 # Default hyperparameters:
-hparams = hparam_tf.hparam.HParams(
+hparams = hparam.HParams(
     name="deepvoice3",
 
     # Text:

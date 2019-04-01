@@ -2,10 +2,10 @@ from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 import numpy as np
 import os
-import audio
+import dv3.audio
 from nnmnkwii.datasets import vctk
 from nnmnkwii.io import hts
-from hparams import hparams
+from dv3.hparams import hparams
 from os.path import exists
 import librosa
 

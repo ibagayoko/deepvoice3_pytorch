@@ -2,8 +2,8 @@ from concurrent.futures import ProcessPoolExecutor
 from functools import partial
 import numpy as np
 import os
-import audio
-from hparams import hparams
+import dv3.audio
+from dv3.hparams import hparams
 
 
 def build_from_path(in_dir, out_dir, num_workers=1, tqdm=lambda x: x):
@@ -54,17 +54,17 @@ def _process_utterance(out_dir, index, wav_path, text):
     '''
 
     # Load the audio to a numpy array:
-    wav = audio.load_wav(wav_path)
+    wav = dv3.audio.load_wav(wav_path)
 
     if hparams.rescaling:
         wav = wav / np.abs(wav).max() * hparams.rescaling_max
 
     # Compute the linear-scale spectrogram from the wav:
-    spectrogram = audio.spectrogram(wav).astype(np.float32)
+    spectrogram = dv3.audio.spectrogram(wav).astype(np.float32)
     n_frames = spectrogram.shape[1]
 
     # Compute a mel-scale spectrogram from the wav:
-    mel_spectrogram = audio.melspectrogram(wav).astype(np.float32)
+    mel_spectrogram = dv3.audio.melspectrogram(wav).astype(np.float32)
 
     # Write the spectrograms to disk:
     spectrogram_filename = 'ljspeech-spec-%05d.npy' % index

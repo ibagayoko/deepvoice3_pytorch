@@ -29,9 +29,9 @@ from tqdm import tqdm, trange
 from datetime import datetime
 
 # The deepvoice3 model
-from deepvoice3_pytorch import frontend, builder
-import audio
-import lrschedule
+from dv3.deepvoice3_pytorch import frontend, builder
+import dv3.audio
+import dv3.lrschedule
 
 import torch
 from torch import nn
@@ -53,7 +53,7 @@ import os
 from tensorboardX import SummaryWriter
 from matplotlib import cm
 from warnings import warn
-from hparams import hparams, hparams_debug_string
+from dv3.hparams import hparams, hparams_debug_string
 
 global_step = 0
 global_epoch = 0

@@ -1,6 +1,6 @@
 import re
-from deepvoice3_pytorch.frontend.text import cleaners
-from deepvoice3_pytorch.frontend.text.symbols import symbols
+from dv3.deepvoice3_pytorch.frontend.text import cleaners
+from dv3.deepvoice3_pytorch.frontend.text.symbols import symbols
 
 
 # Mappings from symbol to numeric ID and vice versa:
