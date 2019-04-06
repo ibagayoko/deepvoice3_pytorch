@@ -33,6 +33,7 @@ def generate_cloned_samples(model, cloning_text_path  = None, no_speakers = 108 
     return all_speakers
 
 def get_cloned_voices(model, no_speakers = 108,no_cloned_texts = 23):
+    import pickle
     try:
         with open("./Cloning_Audio/speakers_cloned_voices_mel.p" , "rb") as fp:
             cloned_voices = pickle.load(fp)
@@ -43,3 +44,6 @@ def get_cloned_voices(model, no_speakers = 108,no_cloned_texts = 23):
             cloned_voices = generate_cloned_samples(model,"./Cloning_Audio/cloning_text.txt" ,no_speakers,True,0)
     print("Cloned_voices Loaded!")
     return cloned_voices
+
+def get_embed_speakers(model):
+ return np.array(model.embed_speakers.weight.data)
